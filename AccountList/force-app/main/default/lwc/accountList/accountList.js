@@ -1,6 +1,9 @@
 import { LightningElement, wire } from 'lwc';
 import getAccounts1 from '@salesforce/apex/AccountListAuraController.getAccounts1';
 import getAccounts2 from '@salesforce/apex/AccountListAuraController.getAccounts2';
+import changeLevels from '@salesforce/apex/AccountListAuraController.changeLevels';
+
+const accIds = [];
 
 const table_columns = [
     {label:'Nombre', fieldName: 'Name', type: 'text' },
@@ -20,9 +23,16 @@ export default class AccountList extends LightningElement {
 
     handleclick(){
         var el = this.template.querySelector('lightning-datatable');
-        console.log(el);
         var selected = el.getSelectedRows();
         console.log(selected);
+        selected.forEach(addToAccIds);
+        changeLevels({accs: accIds});
     }
+    
+}
 
+function addToAccIds(item) {
+    console.log(item);
+
+  accIds.push(item.Id);
 }
