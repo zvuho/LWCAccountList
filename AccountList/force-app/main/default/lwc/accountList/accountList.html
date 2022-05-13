@@ -1,14 +1,47 @@
 <template>
-	<lightning-card title="Cuentas" icon-name="standard:account">
-		<div class="slds-m-around_medium">
-			<template if:true={accounts.data}>
-				<lightning-datatable
-					key-field="id"
-					data={accounts.data}
-					columns={columns}	
-				>
-				</lightning-datatable>
-			</template>
-		</div>
-	</lightning-card>
+    <div class="slds-m-top_small slds-m-bottom_medium">
+        <lightning-button 
+        variant="brand" 
+        label="Cambiar nivel" 
+        title="Primary action" 
+        onclick={handleclick} 
+        class="slds-m-left_x-small">
+        </lightning-button>
+    </div>
+
+    <div class="flex-container">
+
+        <div class="flex-child magenta">
+            <lightning-card title="Cuentas Nivel 1" icon-name="standard:account">
+                <div class="slds-m-around_medium">
+                    <template if:true={accounts1.data}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={accounts1.data}
+                            columns={columns}	
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </lightning-card>
+        
+        </div>
+        
+        <div class="flex-child green">
+            <lightning-card title="Cuentas Nivel 2" icon-name="standard:account">
+                <div class="slds-m-around_medium">
+                    <template if:true={accounts2.data}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={accounts2.data}
+                            columns={columns}	
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </lightning-card>
+        
+        </div>
+        
+      </div>
 </template>
