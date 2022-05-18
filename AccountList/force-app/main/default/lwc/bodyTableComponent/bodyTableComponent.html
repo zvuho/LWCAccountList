@@ -1,0 +1,18 @@
+<template>
+    <lightning-card class="slds-p-left--medium">
+        <div class="slds-grid">
+                <div style="height: 300px;">
+                    <lightning-datatable
+                            key-field="id"
+                            data={apexData}
+                            columns={columns}
+                            onrowselection={getSelectedName}
+                            selected-rows={selectedRows}>
+                    </lightning-datatable>
+                </div> 
+        </div>
+    </lightning-card>
+    <div>
+        <lightning-button label="Activate Account" title="Activate Account" onclick={handleActivate}> </lightning-button>
+    </div>
+</template>

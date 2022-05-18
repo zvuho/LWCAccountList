@@ -17,7 +17,9 @@ export default class AccountList extends LightningElement {
     searchKey = '';
 
     @wire(getAccounts1) accounts1;
-    @wire(getAccounts2) accounts2;    
+    @wire(getAccounts2) accounts2;
+    @wire(changeLevelAura, { selectedAccounts : '$searchKey' }) changeLevel;
+    
     columns = table_columns;
 
     handleclick(){
@@ -26,16 +28,6 @@ export default class AccountList extends LightningElement {
         console.log(selected);
         this.searchKey = JSON.stringify(selected);
         console.log(this.searchKey);
-
-        changeLevelAura({ selectedAccounts : '$searchKey' })
-           .then(result => {
-               if(result){
-                   console.log(result);
-               }
-           })
-           .catch(error => {
-               console.log('Error: ', error);
-           })
 
     }
     
