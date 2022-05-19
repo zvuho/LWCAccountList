@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "AccountList",
+  "name": "LWCAccountList",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "54.0"
