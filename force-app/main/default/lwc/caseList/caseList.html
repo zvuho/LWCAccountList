@@ -1,0 +1,73 @@
+<template>
+    <div class="slds-m-top_small slds-m-bottom_medium">
+        <lightning-button 
+        variant="brand" 
+        label="Cambiar Origen" 
+        title="Primary action" 
+        onclick={handleclick} 
+        class="slds-m-left_x-small">
+        </lightning-button>
+    </div>
+
+    <lightning-combobox
+            name="origin"
+            label="Origin"
+            value={value}
+            placeholder="Select Origin"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+    <p>Selected value is: {value}</p>
+
+    <div class="flex-container">
+
+        <div class="flex-child magenta">
+            <lightning-card title="Casos por Teléfono" icon-name="standard:case">
+                <div class="slds-m-around_medium">
+                    <template if:true={casesPhone.data}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={casesPhone.data}
+                            columns={columns}	
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </lightning-card>
+        
+        </div>
+        
+        <div class="flex-child green">
+            <lightning-card title="Casos por Web" icon-name="standard:case">
+                <div class="slds-m-around_medium">
+                    <template if:true={casesWeb.data}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={casesWeb.data}
+                            columns={columns}	
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </lightning-card>
+        
+        </div>
+                
+        <div class="flex-child yellow">
+            <lightning-card title="Casos por Email" icon-name="standard:case">
+                <div class="slds-m-around_medium">
+                    <template if:true={casesEmail.data}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={casesEmail.data}
+                            columns={columns}	
+                        >
+                        </lightning-datatable>
+                    </template>
+                </div>
+            </lightning-card>
+        
+        </div>
+        
+      </div>
+</template>

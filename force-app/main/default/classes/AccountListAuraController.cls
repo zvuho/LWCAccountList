@@ -10,7 +10,7 @@ public with sharing class AccountListAuraController{
         return [SELECT Name, Phone, LastModifiedBy.Name, Nivel__c FROM Account WHERE Nivel__c = 2 ORDER BY Name];
     }
     
-    @AuraEnabled (cacheable = true)
+    @AuraEnabled
     public static void changeLevelAura(Object selectedAccounts){
         
         if(selectedAccounts != null){
@@ -18,6 +18,8 @@ public with sharing class AccountListAuraController{
         string selaccsStr = string.valueOf(selectedAccounts);
         system.debug('selaccsStr ' + selaccsStr);
         List<Account> accs = (List<Account>)JSON.deserialize(selaccsStr, List<Account>.class);
+        system.debug('accs ' + accs);
+
         for (Account a : accs){
             changeALevel (a);
         }

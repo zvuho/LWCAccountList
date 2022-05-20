@@ -37,6 +37,7 @@ export default class AccountList extends LightningElement {
 
         changeLevelAura({ selectedAccounts : this.selAccounts1 }).then(() => {
             refreshApex(this.accounts1);
+            refreshApex(this.accounts2);
         });
 
         var dt2 = dts[1];
@@ -48,6 +49,7 @@ export default class AccountList extends LightningElement {
         console.log('selAccounts2: ', this.selAccounts2);
    
         changeLevelAura({ selectedAccounts : this.selAccounts2 }).then(() => {
+            refreshApex(this.accounts1);
             refreshApex(this.accounts2);
         });
 
